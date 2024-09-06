@@ -1,0 +1,17 @@
+name: Trigger CI pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+jobs:
+  CI:
+    if: github.event.pull_request.merged == true
+    uses: SupreethKunder/DevSecOps/.github/workflows/build.yml@main
+    with:
+      repo_name: ${{ github.repository }}
+      branch_name: ${{ github.ref_name }}
+      commit_msg: ${{ github.event.pull_request.title }}
+    secrets: inherit
