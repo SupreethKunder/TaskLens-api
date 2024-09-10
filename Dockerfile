@@ -1,4 +1,4 @@
-FROM python:3.12.3-slim-bullseye
+FROM python:3.12.6-slim-bullseye
 
 RUN useradd --create-home --uid 999 --shell /bin/bash devops \
     && mkdir -p /home/devops \
